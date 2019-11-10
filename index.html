@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" >
+<link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
+<meta charset="utf-8">
+<title>Know Your Worth</title>
+</head>
+
+<body onload="hideFunction()">
+
+<nav>
+<h3>| Home | <a href="results.html">Results</a> | <a href="learn.html">Learn</a> | <a href="testyourknowledge.html">Test Your Knowledge</a> |</h3>
+</nav>
+
+<main>
+<h1>Know Your Worth</h1>
+
+<div id="first">
+
+<p>Welcome to Know Your Worth. Take a survey that will inform you on a financial plan that will suit your financial needs! </p>
+<!-- in the javascript: "When the submit button gets clicked, take the value from firstname and the value from lastname, and value from Income and use it to open the right website" -->
+
+<form>
+<h3>
+  First name: <input type="text" name="firstname" id="fName"  value="Your first name">
+  <br><br>
+  Last name: <input type="text" name="lastname" id="lName"  value="Your last name">
+  <br><br>
+  Income (Weekly paycheck amount): <input type="number" name="Income (Weekly paycheck amount)" id="income">
+  <br>
+</h3>
+</form>
+
+ <h3 style= "color: #339966"; >
+ Select a financial goal:
+<select id="list">
+ <option value=""> Select a goal </option>
+  <option id="savings" value="Starting a Savings Account">Starting a Savings</option>
+  <option id="higherEdu" value="Saving for Higher Education (Vocational/Trade school, College, University, Certification fees)">Saving for Higher Education (Vocational/Trade school, College, University, Certification fees)</option>
+  <option id="daily" value="Personal Monthly Financial planning">Personal Monthly Financial planning</option>
+</select>
+</h3>
+<br>
+
+<button onClick="firstFunction()">Submit</button>
+<p>Clicking on the submit button will set your goal in motion. </p>
+
+</div>
+
+<div id="savingsPage">
+	<p>Hello!</p>
+	<p>Here's how you can start saving....</p>
+	<p>The first step to opening up a savings account is first researching which savings account is best for you. A high-yield savings account means that the bank will pay you a higher percentage to keep your money in that particular savings account. There are some online banks that have high yield rates between 1 and 2%. The second step is to make sure you have all your important documents in order to open up your first savings account! The important documents you will need is are a driver’s license, government issued ID passport, social security number, recent addresses, and bank account number/routing number. The last step is to start using your new savings account! The easiest way to start saving is to set up automatic transfers from your checking account. Also, another tip is to download the mobile app so you can have your finances in easy access.</p>
+</div>
+
+<div id="higherEduPage">
+	<p>Hello!</p>
+	<p>The best way to start saving for college is to setup an education savings account or IRA account. These types of accounts allow you to save $2000 per year after tax and it grows tax-free!
+</p>
+</div>
+
+<div id="dailyPage">
+	<p>Hello!</p>
+	<p>Let's talk about making a monthly budget....</p>
+	<ol>
+		<li>The first step to create a good budget is to understand what your net income is.</li>
+		<li>Track you spending: by tracking your spending, you will know how much money you are spending in which area and where you need to cut back on.</li>
+		<li>Set goals: take some time to write down all of your long and short term goals. This will make the process of spending less money much easier. For an example, if you would like to study abroad during the summer time, it will be an easier process to save up money. Also, in order to stay organized, it is helpful to start saving receipts by utilizing tools such as Adobe.</li>
+		<li>Make a solid plan and keep checking in: Make informed decisions when spending your money. Can you skip more dinners out with your friends and only attend special birthday dinners? These are questions you have the power to analyze and make financial decisions.</li>
+	</ol>
+	
+	<p>To find your monthly budget, divide your annual income by 12.<p>
+</div>
+
+<script>
+
+function hideFunction() {
+  document.getElementById("savingsPage").style.display = "none";
+  document.getElementById("higherEduPage").style.display = "none";
+  document.getElementById("dailyPage").style.display = "none";
+} 
+ 
+function firstFunction() {
+  var fName = document.getElementById("fName").value; 
+  var lName = document.getElementById("lName").value;
+  var income = document.getElementById("income").value;
+
+  var chosen = document.getElementById("list").value;
+
+  document.getElementById("first").style.display = "none";
+  
+  if (chosen == "Starting a Savings Account") {
+	  document.getElementById("savingsPage").style.display = "block";
+  } else if (chosen == "Saving for Higher Education (Vocational/Trade school, College, University, Certification fees)") {
+	  document.getElementById("higherEduPage").style.display = "block";
+  } else if (chosen == "Personal Monthly Financial planning") {
+	  document.getElementById("dailyPage").style.display = "block";
+  } else {
+	display("help");
+  }
+}
+
+	document.getElementById("name").innerHTML = fName + " " + lName;
+	
+	document.getElementById("budget").innerHTML = (income / 12);
+
+
+</script>
+
+
+</main>
+
+</body>
+
+</html>
